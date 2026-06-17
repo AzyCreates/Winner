@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        // When the page loads, try to find the surprise page
+        fetch('surprise.html')
+            .then(response => {
+                if (response.ok) {
+                    // Surprise page exists! Redirect to it.
+                    window.location.href = 'surprise.html';
+                } else {
+                    // Surprise page is missing, go to Facebook.
+                    window.location.href = 'https://facebook.com/otwlimay';
+                }
+            })
+            .catch(() => {
+                // If anything goes wrong, default to Facebook
+                window.location.href = 'https://facebook.com/otwlimay';
+            });
+    </script>
+</head>
+<body>
+    <p>Loading...</p>
+</body>
+</html>
