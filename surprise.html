@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="refresh" content="10;url=https://facebook.com/otwlimay">
+    <title>Surprise!</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a2e;
+            color: white;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 85%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        #timer {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #ff4757;
+            text-shadow: 2px 2px 10px rgba(255, 71, 87, 0.5);
+        }
+
+        h1 { font-size: 1.5rem; margin: 20px 0; color: #f1f2f6; }
+        .urgent { color: #ffa502; font-weight: bold; font-size: 1.2rem; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="timer">10</div>
+        <div class="urgent">QUICK!</div>
+        <h1>Screenshot this and show it to our staff for a surprise discount!</h1>
+    </div>
+
+    <script>
+        // Start confetti
+        const end = Date.now() + 10 * 1000;
+        (function frame() {
+            confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
+            confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
+            if (Date.now() < end) requestAnimationFrame(frame);
+        }());
+
+        // Timer logic
+        let timeLeft = 10;
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            timeLeft--;
+            timerEl.innerText = timeLeft;
+            if (timeLeft <= 0) window.location.href = 'https://facebook.com/otwlimay';
+        }, 1000);
+    </script>
+</body>
+</html>
