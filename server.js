@@ -12,7 +12,7 @@ const FACEBOOK_PAGE_URL = 'https://facebook.com/otwlimay';
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: 'your_password',
+    password: 'process.env.DB_PASSWORD',
     database: 'your_database_name',
     waitForConnections: true,
     connectionLimit: 10
