@@ -1,4 +1,0 @@
-[[redirects]]
-  from = "/qr-handler"
-  to = "/.netlify/functions/qr-handler"
-  status = 200
